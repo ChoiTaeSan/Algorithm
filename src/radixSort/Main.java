@@ -40,8 +40,7 @@ public class Main {
         }
 
         // 정렬된 배열을 원래 배열에 복사한다
-        for (int i = 0; i < n; i++)
-            arr[i] = output[i];
+        System.arraycopy(output, 0, arr, 0, n);
     }
 
     // 기수 정렬 메소드
