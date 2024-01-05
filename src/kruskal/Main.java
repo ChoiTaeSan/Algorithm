@@ -28,14 +28,14 @@ public class Main {
     }
 
     // 부모 노드 찾기 함수
-    int find(Subset subsets[], int i) {
+    int find(Subset[] subsets, int i) {
         if (subsets[i].parent != i)
             subsets[i].parent = find(subsets, subsets[i].parent);
         return subsets[i].parent;
     }
 
     // 두 집합 합치기 함수
-    void union(Subset subsets[], int x, int y) {
+    void union(Subset[] subsets, int x, int y) {
         int xroot = find(subsets, x);
         int yroot = find(subsets, y);
 
@@ -53,7 +53,7 @@ public class Main {
     void KruskalMST() {
         Edge[] result = new Edge[V];
         int e = 0;
-        int i = 0;
+        int i;
         for (i = 0; i < V; ++i)
             result[i] = new Edge();
 
@@ -72,7 +72,7 @@ public class Main {
         i = 0; // 정렬된 간선 집합을 인덱싱하기 위한 변수
 
         while (e < V - 1) {
-            Edge next_edge = new Edge();
+            Edge next_edge;
             next_edge = edge[i++];
 
             int x = find(subsets, next_edge.src);
