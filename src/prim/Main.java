@@ -1,6 +1,5 @@
 package prim;
 
-import java.util.*;
 import java.lang.*;
 
 class Main {
